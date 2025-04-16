@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="./img/favicon.png" type="image/png" />
+    <title>404 euros not found</title>
+  </head>
+  <body>
+    <header>
+      <div class="header">
+        <a href="accueil.html"
+          ><img src="./img/Logo1.jpg" alt="Logo du site" class="logo"
+        /></a>
+        <h1>404 euros not found</h1>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrapper">
+        <div class="container">
+          <div class="subContainer">
+            <!-- budget -->
+            <div class="totalAmountContainer">
+              <h3>Revenus</h3>
+              <p class="hide error" id="budgetError">
+                La valeur ne peut être vide ou négative!
+              </p>
+              <input
+                type="number"
+                id="totalAmount"
+                placeholder="Rentrer la sommes"
+              />
+              <button class="submit" id="totalAmountBtn">
+                Ajouter un budget
+              </button>
+            </div>
+
+            <!-- dépenses -->
+            <div class="userAmountContainer">
+              <h3 class="expence">Dépenses</h3>
+              <p class="hide error" id="productTitleError">
+                La valeur ne peut être vide!
+              </p>
+              <input
+                type="text"
+                class="productTitle"
+                id="productTitle"
+                placeholder="Entrer le nom"
+              />
+              <input
+                type="number"
+                id="userAmount"
+                placeholder="Rentrer le prix"
+              />
+              <button class="submit" id="checkAmountBtn">
+                Ajouter la dépense
+              </button>
+            </div>
+          </div>
+          <div class="outputContainer flexSpace">
+            <div>
+              <p>Total du budget</p>
+              <span id="Amount">0€</span>
+            </div>
+            <div>
+              <p>dépenses</p>
+              <span id="expenditureValue">0€</span>
+            </div>
+            <div>
+              <p>Total restant</p>
+              <span id="balanceAmount">0€</span>
+            </div>
+          </div>
+        </div>
+        <div class="list">
+          <h3>Expense list</h3>
+          <div class="listContainer" id="list"></div>
+        </div>
+        <div class="listContainer" id="list"></div>
+        <button class="submit" id="exportCSV">Exporter CSV</button>
+        <button class="submit" id="exportPDF">Exporter PDF</button>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <img src="./img/Logo1.jpg" alt="Logo du site" class="logo" />
+      <h2>404 euros not found</h2>
+      <p>© 2023, Budget Simulator</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  </body>
+</html>

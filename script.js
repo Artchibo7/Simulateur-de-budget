@@ -16,10 +16,10 @@ const list = document.getElementById("list");
 //** 🏦 2. Variables pour stocker les données
 //
 
-function saveToLocalStorage() {
-  localStorage.setItem("budget", JSON.stringify(budget));
-  localStorage.setItem("expenses", JSON.stringify(expenses));
-}
+// function saveToLocalStorage() {
+//   localStorage.setItem("budget", JSON.stringify(budget));
+//   localStorage.setItem("expenses", JSON.stringify(expenses));
+// }
 
 let budget = 0;
 let expenses = [];
@@ -39,7 +39,7 @@ function updateBudgetDisplay() {
   } else {
     balanceAmount.style.color = "";
   }
-  saveToLocalStorage();
+  // saveToLocalStorage();
 }
 
 //
@@ -103,7 +103,7 @@ function addExpenseToDOM(expense) {
     list.innerHTML = "";
     expenses.forEach(addExpenseToDOM);
   }
-  
+
   //
   //** 📝 7. Modifier une dépense
   //
@@ -134,7 +134,6 @@ function addExpenseToDOM(expense) {
   });
 }
 
-
 //
 //** 🏷️ 9. Charger les données depuis le stockage local
 //
@@ -147,6 +146,12 @@ window.addEventListener("DOMContentLoaded", () => {
   refreshList();
   updateBudgetDisplay();
 });
+
+function refreshList() {
+  list.innerHTML = "";
+  expenses.forEach(addExpenseToDOM);
+}
+
 
 document.getElementById("exportCSV").addEventListener("click", () => {
   let csvContent = "Nom,Dépense (euros)\n";
@@ -161,6 +166,10 @@ document.getElementById("exportCSV").addEventListener("click", () => {
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
+
+  //**🧹 Vider le localStorage après export
+
+  localStorage.clear();
 });
 
 document.getElementById("exportPDF").addEventListener("click", async () => {
@@ -173,4 +182,8 @@ document.getElementById("exportPDF").addEventListener("click", async () => {
     y += 10;
   });
   doc.save("depenses.pdf");
+
+  //**🧹 Vider le localStorage après export
+
+  localStorage.clear();
 });
